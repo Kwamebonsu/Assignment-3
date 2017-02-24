@@ -55,16 +55,36 @@ public class A3Q3 {
             while (karel.canPickThing()) {
                 karel.pickThing();
             }
-            if(karel.frontIsClear()){
-                karel.move();
-                karel.turnLeft();
+           if(karel.frontIsClear()){
+               karel.move();
             }
-            while(!karel.frontIsClear()){
-                karel.turnLeft();
-                karel.turnLeft();
-                karel.turnLeft();
-            }
+          else if(!karel.frontIsClear()){
+               if(karel.getStreet()==1 || karel.getStreet()==3 || karel.getStreet()==5 || karel.getStreet()==7){
+           while(karel.getDirection()!=Direction.SOUTH){
+               karel.turnLeft();
+           }
+               karel.move();
+           while(karel.getDirection()!=Direction.WEST){
+               karel.turnLeft();
+               karel.turnLeft();
+               karel.turnLeft();}
+           karel.move();}
+               
+               if(karel.getStreet()==0 || karel.getStreet()==2 || karel.getStreet()==4 || karel.getStreet()==6){
+           while(karel.getDirection()!=Direction.SOUTH){
+               karel.turnLeft();
+           }
+               karel.move();
+           while(karel.getDirection()!=Direction.EAST){
+               karel.turnLeft();
+               karel.turnLeft();
+               karel.turnLeft();}
+           karel.move();
+           
             }
         }
     }
+    }
+}
+
 
