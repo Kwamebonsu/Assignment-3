@@ -86,6 +86,20 @@ public class A3Q32 {
             
             }
         }
+        while(true){
+            while(karel.getDirection()!=Direction.NORTH){
+                karel.turnLeft();
+            }
+            while(karel.getStreet()!=1){
+              karel.move();  
+            }
+            while(karel.getDirection()!=Direction.WEST){
+                karel.turnLeft();
+            }
+            while(karel.getAvenue()!=1){
+              karel.move();  
+            }
+        }
 
     }
 }
