@@ -9,11 +9,12 @@ import becker.robots.Wall;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author bonsk5852
  */
-public class A3Q3 {
+public class A3Q32 {
 
     /**
      * @param args the command line arguments
@@ -51,32 +52,40 @@ public class A3Q3 {
 
         Robot karel = new Robot(kw, 1, 1, Direction.EAST);
         
-
-        while (true) {
-                if(karel.canPickThing()){
-                    karel.pickThing();
-                }
-                karel.move();
-            
-            if(!karel.frontIsClear()){
-                while(karel.getDirection()!=Direction.SOUTH){
-                    karel.turnLeft();
-                }
-                karel.move();
-                if(karel.getAvenue()==4 ){
-                    karel.turnLeft();
-                    karel.turnLeft();
-                    karel.turnLeft();
-                }
-                if(karel.getAvenue()==1){
-                    karel.turnLeft();
-                    
-                }
-                }
+        while(true){
+            while(karel.canPickThing()){
+                karel.pickThing();
             }
+            if(karel.frontIsClear()){
+                karel.move();
+            }
+            if(!karel.frontIsClear() && karel.getAvenue()==4){
+                while(karel.getDirection()!=Direction.SOUTH){
+                karel.turnLeft();
+                }
+                if(karel.getAvenue()==4 && karel.getStreet()==3){
+                    karel.pickThing();
+                        break;
+                    }
+                karel.move();
+                
+                while(karel.getDirection()!=Direction.WEST){
+                    karel.turnLeft();
+                }
+            
+            }
+            if(!karel.frontIsClear() && karel.getAvenue()==1){
+                while(karel.getDirection()!=Direction.SOUTH){
+                karel.turnLeft();
+                }
+                karel.move();
+                
+                while(karel.getDirection()!=Direction.EAST){
+                    karel.turnLeft();
+                }
+            
+            }
+        }
+
     }
-    }
-
-
-
-
+}
