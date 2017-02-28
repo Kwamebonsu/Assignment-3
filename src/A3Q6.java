@@ -44,15 +44,18 @@ public class A3Q6 {
         Robot karel = new Robot(kw, 0, 1, Direction.SOUTH);
         karel.move();
         while (true) {
+
             //pick things up if karel is in avenue 1 and can pick things up
             while (karel.canPickThing() && karel.getAvenue() == 1) {
                 karel.pickThing();
             }
+
             //turn left and put things down in a line once karel can't pick up anymore things
             karel.turnLeft();
             while (karel.countThingsInBackpack() > 0) {
                 karel.putThing();
                 karel.move();
+
                 //return back to avenue one,face south and move down 1 once karel has put down all the things
                 if (karel.countThingsInBackpack() == 0 && karel.getAvenue() > 1) {
                     karel.turnLeft();
@@ -62,6 +65,7 @@ public class A3Q6 {
                     }
                 }
             }
+
             //break the loop if karel is in avenue 1 and there are no things to pick up
             if (karel.getAvenue() == 1 && !karel.canPickThing()) {
                 break;

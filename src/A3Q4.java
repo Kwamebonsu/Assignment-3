@@ -49,37 +49,51 @@ public class A3Q4 {
 
         new Wall(kw, 4, 4, Direction.EAST);
         new Wall(kw, 3, 4, Direction.EAST);
+
         //create a gap instead of a wall at 2, 4
+
         new Wall(kw, 1, 4, Direction.EAST);
 
         //create a robot
 
-        RobotSE karel = new RobotSE(kw, 4, 1, Direction.EAST);
+        Robot karel = new Robot(kw, 2, 2, Direction.EAST);
+
+        while (karel.getStreet() != 4) {
+            //face south and move to street 4
+            while (karel.getDirection() != Direction.SOUTH) {
+                karel.turnLeft();
+            }
+            karel.move();
+
+            //once karel is on street 4, face East
+            if (karel.getStreet() == 4) {
+                while (karel.getDirection() != Direction.EAST) {
+                    karel.turnLeft();
+                }
+            }
+        }
 
         while (true) {
 
+
             //break the loop once karel reaches avenue 5
-
             if (karel.getAvenue() == 5) {
-
                 break;
 
             }
 
             //karel checks his right side to see if there is a wall
-
-            //if there is a wall, karel turns left and moves
+            karel.turnLeft();
+            karel.turnLeft();
+            karel.turnLeft();
 
             //if there is no wall, karel moves
-
-            karel.turnRight();
-
             if (karel.frontIsClear()) {
-
                 karel.move();
 
             }
 
+            //if there is a wall, karel turns left and moves
             if (!karel.frontIsClear()) {
 
                 karel.turnLeft();

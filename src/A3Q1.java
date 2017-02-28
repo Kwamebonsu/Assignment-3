@@ -9,7 +9,6 @@ import becker.robots.Wall;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author bonsk5852
@@ -22,19 +21,20 @@ public class A3Q1 {
     public static void main(String[] args) {
         // Create a city
         City kw = new City();
-        
+
         //create a thing
         new Thing(kw, 1, 6);
-        
+
         //create a wall
         new Wall(kw, 1, 5, Direction.EAST);
-        
+
         //create a Robot
         Robot karel = new Robot(kw, 1, 1, Direction.EAST);
-        
-        for(int counter=4; counter>0; counter--){
+
+        //move 4 spaces
+        for (int counter = 4; counter > 0; counter--) {
             karel.move();
         }
-        
+
     }
 }
